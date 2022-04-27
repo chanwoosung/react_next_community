@@ -1,0 +1,56 @@
+.topbar {
+    height:124px;
+    width: 100%;
+    top: 0;
+}
+.title {
+    height: 32px;
+    margin-top: 34px;
+    margin-left: 30px;
+    font-family: 'Noto Sans KR';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 32px;
+    color: #222222;
+}
+.topbar ul::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera*/
+}
+.topbar ul {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+    display: -webkit-inline-box;
+    width: auto;
+    overflow-x: scroll;
+    overflow-y:hidden;
+    padding-left: 22px;
+    margin: 18px 0;
+}
+.topbar li {
+    list-style: none;
+    border: 1px solid #E8E8E8;
+    border-radius: 20px;
+    width: auto;
+    display: flex;
+    padding: 7px 16px;
+    margin-right: 4px;
+    font-family: 'Noto Sans KR';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    align-items: center;
+}
+.topbar li>img {
+    margin-right: 3px;
+}
+.on {
+    font-family: 'Noto Sans KR';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 14px;
+    text-align: center;
+    color: #FFFFFF;
+    background-color: #2C7FFF !important;
+}
