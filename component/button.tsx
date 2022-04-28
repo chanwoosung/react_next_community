@@ -2,7 +2,6 @@ import Image from "next/image";
 import css from "../styles/button.module.css";
 
 function Button({text,url,float,width,height,onClick}) {
-    console.log("work?",float);
     return (
         <div className={float?css.float_btn:css.btn} onClick={onClick} style={{width: width,height: height}}>
             <div className={css.btn_text}>

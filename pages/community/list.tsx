@@ -56,6 +56,7 @@ const Home: NextPage = () => {
           if(checkOption(content.categoryPk,content.viewCount)) {
               return(<BoardBlock key={content.pk}
               categoryPk={content.categoryPk}
+              pk={content.pk}
               categoryName={content.categoryName}
               likeCount={content.likeCount}
               commentCount={content.commentCount}
