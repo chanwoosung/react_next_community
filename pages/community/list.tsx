@@ -10,6 +10,8 @@ import Button from '../../component/button'
 
 const Home: NextPage = () => {
   const [contents,setContents] = useState([]);
+  const [categories,setCategories] = useState([]);
+  const [option,setOption] = useState(0);
 
   useEffect(()=>{
     callContents();
@@ -24,29 +26,49 @@ const Home: NextPage = () => {
     }
   }
 
+  const clcikOption = (pk) => {
+    console.log(pk);
+    setOption(pk);
+  }
+
+  const checkOption = (pk,viewCount) => {
+    if(option == 0) return true;
+    if(option == 100) {
+        if(viewCount >= 100) return true;
+        else return false;
+    }
+    if(option == pk) {
+        return true;
+    } else {
+        return false;
+    }
+  }
+
   return (
     <div className={styles.wrapper}>
       <Head>
         <title>Call bus Assginment</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Category />
+      <Category onClick={clcikOption} categories={categories} setCategories={setCategories} option={option}/>
       <div className={styles.backboard}>
         {contents.map((content)=>{
-          console.log("???",content);
-          return(<BoardBlock key={content.pk}
-          categoryPk={content.categoryPk}
-          categoryName={content.categoryName}
-          likeCount={content.likeCount}
-          commentCount={content.commentCount}
-          content={content.content}
-          viewCount={content.viewCount}
-          writtenAt={content.writtenAt}
-          writerProfileUrl={content.writerProfileUrl}
-          title={content.title}
-          imageUrl={content.imageUrl}
-          writerNickName={content.writerNickName}  />
-        )})}
+          if(checkOption(content.categoryPk,content.viewCount)) {
+              return(<BoardBlock key={content.pk}
+              categoryPk={content.categoryPk}
+              categoryName={content.categoryName}
+              likeCount={content.likeCount}
+              commentCount={content.commentCount}
+              content={content.content}
+              viewCount={content.viewCount}
+              writtenAt={content.writtenAt}
+              writerProfileUrl={content.writerProfileUrl}
+              title={content.title}
+              imageUrl={content.imageUrl}
+              writerNickName={content.writerNickName}  />
+            )
+          }
+        })}
       </div>
       <Button
       text="글쓰기"

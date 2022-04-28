@@ -8,8 +8,9 @@ import Category from '../component/category'
 import BoardBlock from '../component/boardblock'
 import Button from '../component/button'
 
-const Home: NextPage = () => {
+const List: NextPage = () => {
   const [contents,setContents] = useState([]);
+  const [categories,setCategories] = useState([]);
 
   useEffect(()=>{
     callContents();
@@ -30,7 +31,7 @@ const Home: NextPage = () => {
         <title>Call bus Assginment</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Category />
+      <Category categories={categories} Setter={setCategories}/>
       <div className={styles.backboard}>
         {contents.map((content)=>{
           console.log("???",content);
@@ -58,4 +59,4 @@ const Home: NextPage = () => {
   )
 }
 
-export default Home
+export default List
