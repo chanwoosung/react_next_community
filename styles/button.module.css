@@ -1,0 +1,45 @@
+@font-face {
+    font-family: 'Apple SD Gothic Neo';
+    src: url(../public/assets/fonts/Apple_SD_Gothic/AppleSDGothicNeoL.ttf);
+}
+.btn {
+    background: #2C7FFF;
+    border-radius: 8px;
+    font-family: 'Apple SD Gothic Neo';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 24px;
+    display: flex;
+    align-items: center;
+    color: #FFFFFF;
+    display: flex;
+    justify-content: center;
+}
+.float_btn {
+    background: #2C7FFF;
+    border-radius: 8px;
+    font-family: 'Apple SD Gothic Neo';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 24px;
+    display: flex;
+    align-items: center;
+    color: #FFFFFF;
+    position:fixed;
+    bottom: 16px;
+    position: fixed;
+    right: 16px;
+    display: flex;
+    justify-content: center;
+}
+.btn_text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+.btn>span,.float_btn>span {
+    margin-left: 3px !important;
+}

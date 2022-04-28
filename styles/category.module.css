@@ -25,6 +25,7 @@
     overflow-x: scroll;
     overflow-y:hidden;
     padding-left: 22px;
+    width: 100%;
     margin: 18px 0;
 }
 .topbar li {
@@ -41,8 +42,8 @@
     font-size: 14px;
     align-items: center;
 }
-.topbar li>img {
-    margin-right: 3px;
+.topbar li span {
+    margin-right: 3px !important;
 }
 .on {
     font-family: 'Noto Sans KR';

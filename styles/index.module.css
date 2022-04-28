@@ -1,7 +1,16 @@
+@font-face {
+    font-family: 'Noto Sans KR';
+    src: url(../public/assets/fonts/Noto_Sans_KR/NotoSansKR-Regular.otf);
+}
 .wrapper{
     width: 360px;
     height: auto;
     margin: auto;
+}
+.backboard {
+    width: 100%;
+    height: auto !important;
+    background-color:#E8E8E8;
 }
 @media screen and (max-width:768px) {
     .wrapper {
