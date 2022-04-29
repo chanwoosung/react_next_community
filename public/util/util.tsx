@@ -32,4 +32,8 @@ export class Util {
             }
         }
     }
+    static imageLoader = (url) => {
+        console.log(url);
+        return `${url}`;
+    }
 }

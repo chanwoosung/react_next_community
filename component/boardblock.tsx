@@ -7,21 +7,18 @@ import Link from "next/link";
 
 function BoardBlock(props) {
   console.log(props)
-  const imageLoader = (url) => {
-    console.log(url);
-    return `${url}`;
-  }
 
   return (
     <div>
       <Link href={{
         pathname:`/community/post/${props.pk}`,
-        query:{ data:props}
-        }}>
+        query:{detail:JSON.stringify(props)},
+        }}
+        as={`/community/post/${props.pk}`}>
         <div className={css.writeblock}>
           <div className={css.writersection}>
             <div className={css.profile_image}>
-              <Image src={imageLoader(props.writerProfileUrl)} className={css.writerprofile} width={20} height={20} layout="fixed"/>
+              <Image src={Util.imageLoader(props.writerProfileUrl)} className={css.writerprofile} width={20} height={20} layout="fixed"/>
             </div>
             <div className={css.profile}>
               <div className={css.writername}>{props.writerNickName}</div>
@@ -37,7 +34,7 @@ function BoardBlock(props) {
             </div>
             {props.imageUrl !== null ?
             <div className={css.content_detail_image}>
-              <Image src={imageLoader(props.imageUrl)} className={css.image} layout="fill" objectFit="cover"/>
+              <Image src={Util.imageLoader(props.imageUrl)} className={css.image} layout="fill" objectFit="cover"/>
             </div>
             :null
             }
