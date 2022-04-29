@@ -57,6 +57,15 @@
     font-family: 'Noto Sans KR';
     font-style: normal;
     font-weight: 700;
+    font-size: 17px;
+    line-height: 21px;
+    color: #222222;
+    margin-bottom: 8px;
+}
+.content_title_summary {
+    font-family: 'Noto Sans KR';
+    font-style: normal;
+    font-weight: 700;
     font-size: 16px;
     line-height: 21px;
     color: #222222;
@@ -67,6 +76,14 @@
     -webkit-box-orient: vertical;
     width:100%;
     overflow: hidden;
+}
+.content_detail{
+    font-family: 'Noto Sans KR';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 24px;
+    color: #7A7A7A;
 }
 .content_detail_summary {
     height: 44px;
@@ -82,13 +99,30 @@
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
 }
+.content_detail_thumbnail{
+    margin-top:17px;
+}
+.content_detail_thumbnail span {
+    width:100% !important;
+    height:160px !important;
+    position:relative !important;
+}
+.content_detail_thumbnail .image {
+    width:100%;
+    height: 100%;
+    position: relative !important;
+}
 .content_detail_image{
     margin-top:17px;
 }
 .content_detail_image span {
-    width:100% !important;
-    height:160px !important;
+    width:100vw !important;
+    height:100% !important;
     position:relative !important;
+    transform: translate(-26px, 0);
+}
+.content_detail_image span>img {
+    height: 100% !important;
 }
 .content_detail_image .image {
     width:100%;

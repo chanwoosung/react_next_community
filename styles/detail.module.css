@@ -5,6 +5,7 @@
     height: auto;
     background-color: #ffffff;
     margin-bottom: 6px;
+    overflow-y: scroll;
 }
 .writersection {
     display:flex;

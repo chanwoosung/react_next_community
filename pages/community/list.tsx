@@ -7,11 +7,14 @@ import { API } from '../api/api'
 import Category from '../../component/category'
 import BoardBlock from '../../component/boardblock'
 import Button from '../../component/button'
+import Link from 'next/link'
+import { useRouter } from 'next/router'
 
 const Home: NextPage = () => {
   const [contents,setContents] = useState([]);
   const [categories,setCategories] = useState([]);
   const [option,setOption] = useState(0);
+  const router = useRouter();
 
   useEffect(()=>{
     callContents();
@@ -44,6 +47,14 @@ const Home: NextPage = () => {
     }
   }
 
+  const moveToDetail = (content) => {
+    console.log("working",content);
+    router.push({
+      pathname:`/community/post/${content.pk}`,
+      query:{detail:JSON.stringify(content)},
+    },`/community/post/${content.pk}`);
+  }
+
   return (
     <div className={styles.wrapper}>
       <Head>
@@ -54,19 +65,28 @@ const Home: NextPage = () => {
       <div className={styles.backboard}>
         {contents.map((content)=>{
           if(checkOption(content.categoryPk,content.viewCount)) {
-              return(<BoardBlock key={content.pk}
-              categoryPk={content.categoryPk}
-              pk={content.pk}
-              categoryName={content.categoryName}
-              likeCount={content.likeCount}
-              commentCount={content.commentCount}
-              content={content.content}
-              viewCount={content.viewCount}
-              writtenAt={content.writtenAt}
-              writerProfileUrl={content.writerProfileUrl}
-              title={content.title}
-              imageUrl={content.imageUrl}
-              writerNickName={content.writerNickName}  />
+            console.log(Array.isArray(content.imageUrl));
+              return(
+                // <Link href={{
+                //   pathname:`/community/post/${content.pk}`,
+                //   query:{detail:JSON.stringify(content)},
+                //   }}
+                //   as={`/community/post/${content.pk}`} passHref>
+                  <BoardBlock key={content.pk}
+                  categoryPk={content.categoryPk}
+                  pk={content.pk}
+                  categoryName={content.categoryName}
+                  likeCount={content.likeCount}
+                  commentCount={content.commentCount}
+                  content={content.content}
+                  viewCount={content.viewCount}
+                  writtenAt={content.writtenAt}
+                  writerProfileUrl={content.writerProfileUrl}
+                  title={content.title}
+                  imageUrl={content.imageUrl}
+                  writerNickName={content.writerNickName}
+                  onClick={()=>{moveToDetail(content)}}  />
+                // </Link>
             )
           }
         })}
