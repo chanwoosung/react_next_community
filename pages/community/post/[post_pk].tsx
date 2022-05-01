@@ -6,6 +6,7 @@ import css from "../../../styles/detail.module.css"
 import Image from "next/image";
 import { Util } from "../../../public/util/util";
 import BoardBlock from "../../../component/boardblock";
+import { ArticleDetail } from "../../../model/articlemodel";
 
 export default function Detail() {
     const router = useRouter();
@@ -15,18 +16,25 @@ export default function Detail() {
     console.log(props);
     // const [data,setData]=useState(router);
     const [data,setData]=useState(props);
+    const [like,setLike] = useState(data.likeCount);
     console.log(data);
     useEffect(()=>{
         getDetail();
     },[]);
 
+    const clickFollow = () => {
+        props.likeCount++;
+        setLike(props);
+    }
+
     const getDetail = async() => {
-        const {imageUrl} = await API.Request<ArticleDetail>(`https://bf36ab19-e70b-44b3-b4fa-96f553ddd580.mock.pstmn.io/community/post?post_pk=${router.query.post_pk}`);
+        const {imageUrl} = await API.Request<ArticleDetail>(`https://a5b357ce-1d22-43c0-9664-8f9b56ef2753.mock.pstmn.io/community/post?post_pk=${router.query.post_pk}`);
         console.log(imageUrl);
         if(imageUrl) {
             props.imageUrl = imageUrl;
             setData(props);
-        }    }
+        }
+    }
     return(
         <div>
             <TobBar destination="글 목록으로" />
@@ -44,6 +52,7 @@ export default function Detail() {
                 title={data.title}
                 imageUrl={data.imageUrl}
                 writerNickName={data.writerNickName}
+                clickFollow={clickFollow}
                 />
             </div>
         </div>

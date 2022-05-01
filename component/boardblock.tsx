@@ -65,7 +65,7 @@ function BoardBlock(props) {
               {props.viewCount}
             </div>
             }
-            <div className={css.content_interest_block}>
+            <div className={css.content_interest_block} onClick={()=>props.clickFollow()}>
               {checkDetail()?
               <Image src="/assets/icon/like-thumb-stroke.png" objectFit="contain" width="16" height="14" />
               :
