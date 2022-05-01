@@ -10,7 +10,7 @@ function Category({categories,setCategories,option,onClick}) {
 
   const callCategories = async() => {
     try {
-      const categoryData = await API.Request('https://bf36ab19-e70b-44b3-b4fa-96f553ddd580.mock.pstmn.io/community/category',{})
+      const categoryData = await API.Request('https://a5b357ce-1d22-43c0-9664-8f9b56ef2753.mock.pstmn.io/community/category',{})
       console.log(categoryData);
       setCategories(categoryData);
     } catch (error) {

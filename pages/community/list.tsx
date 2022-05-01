@@ -23,7 +23,7 @@ const Home: NextPage = () => {
 
   const callContents = async() => {
     try {
-      const contentsData = await API.Request<ArticleListItem[]>('https://bf36ab19-e70b-44b3-b4fa-96f553ddd580.mock.pstmn.io/community/list',{})
+      const contentsData = await API.Request<ArticleListItem[]>('https://a5b357ce-1d22-43c0-9664-8f9b56ef2753.mock.pstmn.io/community/list',{})
       setContents(contentsData);
     } catch (error) {
       throw error;
@@ -49,6 +49,7 @@ const Home: NextPage = () => {
   }
 
   const moveToDetail = (content) => {
+    content.check=false;
     console.log("working",content);
     router.push({
       pathname:`/community/post/${content.pk}`,
@@ -86,6 +87,7 @@ const Home: NextPage = () => {
                   title={content.title}
                   imageUrl={content.imageUrl}
                   writerNickName={content.writerNickName}
+                  check={false}
                   onClick={()=>{moveToDetail(content)}}  />
                 // </Link>
             )
