@@ -116,7 +116,7 @@
     margin-top:17px;
 }
 .content_detail_image span {
-    width:100vw !important;
+    width:calc(100% + 52px) !important;
     height:100% !important;
     position:relative !important;
     transform: translate(-26px, 0);

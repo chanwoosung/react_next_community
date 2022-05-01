@@ -9,9 +9,10 @@ import BoardBlock from '../../component/boardblock'
 import Button from '../../component/button'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
+import { ArticleListItem } from './post/[post_pk]'
 
 const Home: NextPage = () => {
-  const [contents,setContents] = useState([]);
+  const [contents,setContents] = useState<ArticleListItem[]>([]);
   const [categories,setCategories] = useState([]);
   const [option,setOption] = useState(0);
   const router = useRouter();
@@ -22,7 +23,7 @@ const Home: NextPage = () => {
 
   const callContents = async() => {
     try {
-      const contentsData = await API.Request('https://bf36ab19-e70b-44b3-b4fa-96f553ddd580.mock.pstmn.io/community/list',{})
+      const contentsData = await API.Request<ArticleListItem[]>('https://bf36ab19-e70b-44b3-b4fa-96f553ddd580.mock.pstmn.io/community/list',{})
       setContents(contentsData);
     } catch (error) {
       throw error;

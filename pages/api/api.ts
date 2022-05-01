@@ -1,5 +1,6 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from 'next'
+import { ArticleDetail } from '../community/post/[post_pk]';
 
 export class API {
   req: {
@@ -14,10 +15,10 @@ export class API {
     this.req = Request;
     this.res = Response
   }
-  static Request = async (url:String, data:Object) => {
+  static Request = async <T>(url:string, data?:Object): Promise<T> => {
     try {
       const response = await fetch(url,data);
-      if(response.status !== 200 ) return  new Error(response.status);
+      if(response.status !== 200 ) throw  new Error(response.status);
       return response.json();
     } catch (error) {
       throw error;

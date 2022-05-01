@@ -113,3 +113,13 @@
 .content_interest_block>span {
     margin-right: 6px !important;
 }
+.wrapper{
+    width: 360px;
+    height: auto;
+    margin: auto;
+}
+@media screen and (max-width:768px) {
+    .wrapper {
+        width:100vw;
+    }
+}

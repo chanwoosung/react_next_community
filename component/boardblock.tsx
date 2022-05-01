@@ -6,6 +6,7 @@ import { Util } from "../public/util/util";
 import Link from "next/link";
 import { useRouter } from "next/router";
 
+
 function BoardBlock(props) {
   console.log(props)
   const router = useRouter();
@@ -65,11 +66,19 @@ function BoardBlock(props) {
             </div>
             }
             <div className={css.content_interest_block}>
+              {checkDetail()?
+              <Image src="/assets/icon/like-thumb-stroke.png" objectFit="contain" width="16" height="14" />
+              :
               <Image src="/assets/icon/like-thumb.png" objectFit="contain" width="8" height="12" />
+              }
               {props.likeCount}
             </div>
             <div className={css.content_interest_block}>
-              <Image src="/assets/icon/comment.png" objectFit="contain" width="12" height="10" />
+              {checkDetail()?
+                <Image src="/assets/icon/Mask.png" objectFit="contain" width="16" height="14" />
+              :
+                <Image src="/assets/icon/comment.png" objectFit="contain" width="12" height="10" />
+              }
               {props.commentCount}
             </div>
           </div>
